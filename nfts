@@ -1,0 +1,20 @@
+### Files
+- **`NFTContract.sol`**
+  ```solidity
+  pragma solidity ^0.8.0;
+
+  import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+
+  contract NFTContract is ERC721 {
+      uint public tokenCounter;
+
+      constructor() ERC721("NFT", "NFT") {
+          tokenCounter = 0;
+      }
+
+      function mint() public {
+          _safeMint(msg.sender, tokenCounter);
+          tokenCounter++;
+      }
+  }
+  ```
